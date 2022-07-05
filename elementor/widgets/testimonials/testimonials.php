@@ -219,51 +219,77 @@ class Droit_Addons_testimonials extends \Elementor\Widget_Base {
    
     // define rander preview
     protected function render() {
+        $this->load_widget_script();
         $settings = $this->get_settings_for_display();
         $testimonalsList = $settings['testimonials_list'];
         extract($settings);
 	?>
 	<!-- Testimonialxggdfgzsds -->
     <section id="testimonials" class="testimonials">
-			<div class="intro">
-				<div class="scroll-wrap">
-					<div class="container">
-                        <?php if(!empty($settings['testimonials_section_title'])): ?>
-						<h2 class="testimonisla_title"><?php echo wp_kses_post($settings['testimonials_section_title']); ?></h2>
-                        <?php endif; ?>
-						<div class="testimonial_slider_items">
-                            <?php
-                            $i=1;
-                            foreach( $testimonalsList as $key=>$testimon_list):
-                            ?>
-							<div class="testimonial_slider">
-								<div class="row justify-content-between">
-									<div class="col-md-6">
-										<img src="<?php echo esc_url($testimon_list['test_image']['url']); ?>" alt="">
-									</div>
-									<div class="col-md-6">
-										<div class="dl_fp_testomonial_content">
-											<div class="testomonial_content-slide">
-												<div class="dl_testomonial_list_wrapper">
-													<h5 class="dl_name"><span><?php echo wp_kses_post($testimon_list['testimonials_title']); ?>
-                                                </span><?php echo wp_kses_post($testimon_list['testimonials_author']); ?></h5>
-													<p class="dl_desc"><?php echo wp_kses_post($testimon_list['testimonials_details']); ?></p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-                            <?php
-                             $i++;
-                            endforeach; ?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
+        <div class="intro">
+            <div class="scroll-wrap">
+                <div class="container">
+                    <?php if(!empty($settings['testimonials_section_title'])): ?>
+                    <h2 class="testimonisla_title"><?php echo wp_kses_post($settings['testimonials_section_title']); ?></h2>
+                    <?php endif; ?>
+                    <div class="testimonial_slider_items">
+                        <?php
+                        $i=1;
+                        foreach( $testimonalsList as $key=>$testimon_list):
+                        ?>
+                        <div class="testimonial_slider">
+                            <div class="row justify-content-between">
+                                <div class="col-md-6">
+                                    <img src="<?php echo esc_url($testimon_list['test_image']['url']); ?>" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dl_fp_testomonial_content">
+                                        <div class="testomonial_content-slide">
+                                            <div class="dl_testomonial_list_wrapper">
+                                                <h5 class="dl_name"><span><?php echo wp_kses_post($testimon_list['testimonials_title']); ?>
+                                            </span><?php echo wp_kses_post($testimon_list['testimonials_author']); ?></h5>
+                                                <p class="dl_desc"><?php echo wp_kses_post($testimon_list['testimonials_details']); ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                            $i++;
+                        endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <?php 
   }
+
+  public function load_widget_script(){
+    if( \Elementor\Plugin::$instance->editor->is_edit_mode() === true  ) {
+        ?>
+        <script>
+            ( function( $ ){
+
+                $('.testimonial_slider_items').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    prevArrow:
+                        '<button type="button" class="slick-prev"><i class="fas fa-long-arrow-alt-left"></i></button>',
+                    nextArrow:
+                        '<button type="button" class="slick-next"><i class="fas fa-long-arrow-alt-right"></i></button>',
+                    autoplaySpeed: 2000,
+                    arrows: true,
+                });
+                // end Slider Script
+            })(jQuery);
+        </script>
+        <?php
+    }
+}
+
+
+
 }

@@ -27,12 +27,18 @@ class Widgets_Loader{
 		} else {
 			return apply_filters('dladdons_pro_version', '1.0.0');
 		}
-		
 	}
 
     public static function widget_map() {
 
         return apply_filters('drth_elementor_widgets_loading', [
+
+            'banner' => [
+	            'title' => __( 'Banner', 'fabio-core' ),
+	            'js' => [''],
+	            'css' => [''],
+	            'source' => 'local',
+            ],
 
             'education' => [
 	            'title' => __( 'Education', 'fabio-core' ),
@@ -82,8 +88,6 @@ class Widgets_Loader{
 	            'css' => [''],
 	            'source' => 'local',
             ],
-            
-    
         ]);
     }
 

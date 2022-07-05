@@ -5,7 +5,7 @@
  */
 /*
 Plugin Name: Fabio Core
-Plugin URI: https://droitthemes.com/droit-elementor-addons/
+Plugin URI: https://droitthemes.com/
 Description: Droit Elementor Addons is a bundle of super useful widgets. This Elementor compatible plugin is easy to use and you can customize different features as you like. Just plug and play.
 Version: 0.0.1
 Author: DroitThemes
@@ -33,7 +33,6 @@ include 'plugin.php';
 include __DIR__.'/theme-builder/init.php';
 include __DIR__.'/acf/init.php';
 include __DIR__ . '/function.php';
-
 
 // load plugin
 add_action( 'plugins_loaded', function(){

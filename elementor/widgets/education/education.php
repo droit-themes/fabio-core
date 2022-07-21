@@ -291,7 +291,7 @@ class Droit_Addons_education extends \Elementor\Widget_Base {
 				$i = 1;
 				foreach ( $_experience_list as $index => $item ) :   
 				?>
-				<div class="education-contents <?php if($i==2): echo 'active'; endif; ?>">
+				<div class="education-contents">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="title-area">
@@ -310,13 +310,12 @@ class Droit_Addons_education extends \Elementor\Widget_Base {
 				$i++;
 				endforeach; 
 				?>
-				<?php if( $settings['education_button_text'] ): ?>
+			</div>
+			<?php if( $settings['education_button_text'] ): ?>
 				<a href="<?php echo wp_kses_post($settings['education_url']); ?>" class="btn slide">
 					<span class="text"><?php echo wp_kses_post($settings['education_button_text']); ?></span>
 				</a>
 				<?php endif; ?>
-			</div>
-			
 		</div>
 	</div>
 </section>

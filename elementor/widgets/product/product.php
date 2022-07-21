@@ -132,7 +132,7 @@ class Droit_Addons_product extends \Elementor\Widget_Base {
                     $i=1;
                     foreach ( $product_gallery  as $index=>$item ) : 
                     ?>
-					<div class="single-product-item" style="background-image: url('<?php echo esc_url($item['slider_gallery']); ?>')">
+					<div class="single-product-item" style="background-image: url('<?php echo esc_url($item['slider_gallery']['url']); ?>')">
 					</div>
                     <?php
                     $i++;

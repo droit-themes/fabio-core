@@ -287,13 +287,20 @@ class Droit_Addons_skill extends \Elementor\Widget_Base {
                         <div class="col-lg-6 col-md-6">
                             <div class="dl_fp_skils_content">
                                 <div class="progress_bar_wrapper">
-                                    <?php foreach( $skill_info as $index=>$skills ) : ?>
-                                    <div class="progress_bar">
-                                        <p class="dl_desc"><?php echo wp_kses_post($skills['skill_list_title']) ?></p>
-                                        <div class="fillbar line" data-percentage="<?php echo wp_kses_post($skills['skill_value']) ?>"></div>
-                                    </div>
-                                    <?php endforeach; ?>
+                                <?php foreach( $skill_info as $index=>$skills ) : ?>
+                                
+                                 <div class="progress_bar">
+									<p class="dl_desc"><?php echo $skills['skill_list_title']; ?></p>
+									<div class="fillbar line active" data-percentage="<?php echo $skills['skill_value']; ?>">
+									    <div class="progressbar" style="width: 100%; border-radius: 4px;">
+									        <div class="proggress" style="border-radius: 4px; width: <?php echo $skills['skill_value']; ?>%;"></div>
+									        <div class="percentCount"><?php echo $skills['skill_value']; ?>%</div>
+									   </div>
+								    </div>
+								</div>
+                                <?php endforeach; ?>
                                 </div>
+                               
                             </div>
                         </div>
                     </div>

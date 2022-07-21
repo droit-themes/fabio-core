@@ -127,6 +127,16 @@ class Droit_Addons_blog extends \Elementor\Widget_Base {
             ],
         ]
     );
+		
+	 $this->add_control(
+        'blog_title_hover', [
+            'label' => __( 'Tilte Hover Color', 'kidzo-core' ),
+            'type' => \Elementor\Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .single-box a:hover' => 'color: {{VALUE}};',
+            ],
+        ]
+    );	
 
 
     $this->add_group_control(
@@ -202,7 +212,9 @@ class Droit_Addons_blog extends \Elementor\Widget_Base {
                                 <span class="category"><?php the_category(', '); ?></span>
                                                        
                             <?php  if( has_post_thumbnail() ){ ?>
-                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('', array('class' => 'img-box active')) ?></a>
+<!--                             <a href="<?php the_permalink(); ?>"> -->
+								<?php the_post_thumbnail('', array('class' => 'img-box active')) ?>
+<!-- 					        </a> -->
                              <?php } ?>
                         </div>
                         <?php endwhile; ?>

@@ -76,7 +76,7 @@ class Droit_Addons_testimonials extends \Elementor\Widget_Base {
 			'testimonials_author',
 			[
 				'label' => __( 'Author', 'fabio-core' ),
-				'type' => \Elementor\Controls_Manager::DATE_TIME,
+				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => __( 'AbdurRahamanWP', 'fabio-core' ),
 				'placeholder' => __( 'Enter Author Name', 'fabio-core' ),
 				'label_block' => true,
@@ -238,7 +238,7 @@ class Droit_Addons_testimonials extends \Elementor\Widget_Base {
                         foreach( $testimonalsList as $key=>$testimon_list):
                         ?>
                         <div class="testimonial_slider">
-                            <div class="row justify-content-between">
+                            <div class="row justify-content-between align-items-center">
                                 <div class="col-md-6">
                                     <img src="<?php echo esc_url($testimon_list['test_image']['url']); ?>" alt="">
                                 </div>

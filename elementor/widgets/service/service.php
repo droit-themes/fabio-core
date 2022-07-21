@@ -271,7 +271,7 @@ class Droit_Addons_service extends \Elementor\Widget_Base {
                                 ?>
                                 <div class="card">
                                     <div class="card-header">
-                                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        <a class="card-link" data-toggle="collapse" href="#collapse<?php echo $i; ?>">
                                             <div class="single-service-list">
                                                 <h5><?php echo $item['service_title']; ?></h5>
                                                 <div class="icons">
@@ -280,7 +280,7 @@ class Droit_Addons_service extends \Elementor\Widget_Base {
                                             </div>
                                         </a>
                                     </div>
-                                    <div id="collapseOne" class="collapse" data-parent="#accordion">
+                                    <div id="collapse<?php echo $i; ?>" class="collapse" data-parent="#accordion">
                                         <div class="card-body"><?php echo $item['service_details']; ?></div>
                                     </div>
                                 </div>
